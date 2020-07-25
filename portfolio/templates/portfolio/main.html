@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block content %}
+
+
+<h2>Welcome {{user.username|title}}</h2>
+<br>
+
+<table class="table fixed">
+	<tr>
+		<td>
+			<h4 class="center">Amount Invested : <br> {{book_total|floatformat:0|intcomma}}$</h4>
+		</td>
+		<td>
+			<h4 class="center">Market Value : <br> {{market_total|safe}}</h4>
+		</td>
+		<td>
+			<h4 class="center">Total Profit : <br> {{profitPercent|safe}} | {{profit|safe}}</h4>
+		</td>
+	</tr>
+</table>
+
+<br><br>
+
+<a class="btn btn-outline-secondary" href="{% url 'add_stock' %}" role="button">Add stock</a>
+
+<br><br>
+
+<table class="table table-striped table table-hover">
+	<thead>
+		<th>Company Name </th>
+		<th>Ticker</th>
+		<th>Shares</th>
+		<th>Average Cost</th>
+		<th>Close Price</th> 
+		<th>Book Cost</th>
+		<th>Market Value</th>
+		<th>Total Gain $</th> 
+		<th>Total Gain %</th>
+		<th>Action</th>
+	</thead>
+
+{% if stocks != "" %}
+	<tbody>
+		{% for ticker, value in stocks.items %}
+			<tr>
+				<td>
+				<a href="{% url 'update' value.id %}" role="button">{{value.companyName}}</a>
+				</td>
+				<td>{{value.ticker}}</td>
+				<td>{{value.nbr_shares}}</td>
+				<td>{{value.avg_cost|floatformat:0|intcomma}}$</td>
+				<td>{{value.closePrice|floatformat:0|intcomma}}$</td>
+				<td>{{value.book_cost|floatformat:0|intcomma}}$</td>
+				<td>{{value.market_value|floatformat:0|intcomma}}$</td>
+				<td>{{value.total_gain|safe}}</td>
+				<td>{{value.total_gain_pc|safe}}</td>
+				<td>
+					<a class="btn btn-danger" href="{% url 'delete' value.id %}" role="button">Remove</a>
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+{% else %}
+</table>
+
+<br>
+<h3 class="center">You have no stocks in your portfolio yet</h3>
+{% endif %}
+
+
+{% endblock %}

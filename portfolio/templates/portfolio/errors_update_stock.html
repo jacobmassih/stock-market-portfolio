@@ -1,0 +1,11 @@
+{% if form.nbr_shares.errors  %}
+	<div class="alert alert-warning alert-dismissible" role="alert">
+        {{form.nbr_shares.errors|striptags}}
+	</div>
+
+{% elif form.avg_price.errors  %}
+	<div class="alert alert-warning alert-dismissible" role="alert">
+        {{form.avg_price.errors|striptags}}
+	</div> 
+
+{% endif %}

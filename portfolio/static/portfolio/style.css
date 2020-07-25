@@ -1,0 +1,26 @@
+body
+{
+	margin-top: 3em;
+	margin-bottom: 20%;
+}
+
+footer
+{
+	margin-top : 4%;
+	color: white;
+}
+
+.lower-margin
+{
+	margin-bottom: 1.2%;
+}
+
+.center
+{
+	text-align: center;
+}
+
+.fixed
+{
+	table-layout: fixed;
+}
