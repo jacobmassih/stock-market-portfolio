@@ -30,3 +30,9 @@ To run the web app, cd in the `src` directory of the project and run the followi
 python manage.py runserver
 ```
 To access the web app go to `localhost:8000` in your web browser of choice.
+
+Provided super user credentials:
+```
+username : admin
+password : admin
+```
