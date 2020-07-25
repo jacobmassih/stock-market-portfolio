@@ -11,24 +11,27 @@
 </div>
 {% endif %}
 
-<h1 class="center">Login</h1>
-<hr>
 
-<form action='.' method='POST' ALIGN='center'>
-	{% csrf_token %}
+<div class="center">
+	
+	<h1>Login</h1>
+	<hr>
 
-	<div class="form-group">
-    	<label>Username :</label><br>
- 		{{form.username}}
-  	</div>
+	<form action='.' method='POST'>
+		{% csrf_token %}
 
-	<div class="form-group">
-    	<label>Password :</label><br>
- 		{{form.password}}
-  	</div>
+		<div class="form-group">
+	    	<label>Username :</label><br>
+	 		{{form.username}}
+	  	</div>
 
-	<input type="submit" value="Login">	
+		<div class="form-group">
+	    	<label>Password :</label><br>
+	 		{{form.password}}
+	  	</div>
 
-</form>
+		<input type="submit" value="Login">
+	</form>
+</div>
 
 {% endblock %}
