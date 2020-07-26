@@ -8,6 +8,8 @@ data such as the stock close price is pulled and displayed to the user.
 With this information, the app is able to determine the profit/loss for 
 each stock and the overall performance of the stock portfolio over time, including its current market value.
 
+Users must register/login to use the app.
+
 ## Technologies
 This web app is created with :
 - Django
